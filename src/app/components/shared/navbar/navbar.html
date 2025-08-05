@@ -13,10 +13,16 @@
   a:hover {
     transform: scale(1.1);
   }
+
+  .active {
+    font-weight: bold;
+    color: #ffcc00;
+    transform:  scale(1.1);
+  }
 </style>
 
 
 <nav>
-  <a routerLink="/">Counter</a>
-  <a [routerLink]="['/hero']">Hero</a>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Counter</a>
+  <a [routerLink]="['/hero']" routerLinkActive="active">Hero</a>
 </nav>
