@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, computed, signal } from '@angular/core';
 
 interface Character {
   name: string;
@@ -8,7 +9,7 @@ interface Character {
 
 @Component({
   selector: 'app-dragonball',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './dragonball.html',
   styleUrl: './dragonball.css'
 })
