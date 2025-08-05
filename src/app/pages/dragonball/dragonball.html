@@ -12,10 +12,19 @@
       <h3>Lista de personajes</h3>
       <ul>
         @for (character of characters(); track character.id; let idx = $index) {
-          <li>
-            <span>{{ idx + 1 }}. {{ character.name }}: </span>
-            <strong  [ngClass]="{ 'text-danger': character.power >= 9000 , 'text-primary': character.power < 9000 }">{{ character.power }}</strong>
-          </li>
+          @if (character.power > 1000) {
+            <li>
+              <span>fuerte </span>
+              <span>{{ idx + 1 }}. {{ character.name }}: </span>
+              <strong  [ngClass]="{ 'text-danger': character.power >= 9000 , 'text-primary': character.power < 9000 }">{{ character.power }}</strong>
+            </li>
+          } @else {
+            <li>
+              <span>débil </span>
+              <span>{{ idx + 1 }}. {{ character.name }}: </span>
+              <strong class="text-muted">{{ character.power }}</strong>
+            </li>
+          }
         }
       </ul>
   </div>
