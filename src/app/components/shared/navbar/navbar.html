@@ -1,0 +1,22 @@
+<style>
+  nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #03192e;
+    color: #f3f3f3;
+    padding: 10px;
+  }
+  a {
+    text-decoration: none;
+    color: #f3f3f3;
+  }
+  a:hover {
+    transform: scale(1.1);
+  }
+</style>
+
+
+<nav>
+  <a routerLink="/">Counter</a>
+  <a [routerLink]="['/hero']">Hero</a>
+</nav>
