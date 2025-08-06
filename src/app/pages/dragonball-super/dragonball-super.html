@@ -3,26 +3,14 @@
 
 <section class="row">
   <div class="col-12 col-sm-6">
-    <h3>Datos: {{ name() }} - {{ power() }}</h3>
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Nombre del personaje"
-      [value]="name()"
-      (input)="name.set(nameInput.value)"
-      #nameInput
+    <app-character-add
+      (newCharacter)="addCharacter($event)"
     />
-    <input
-      type="number"
-      class="form-control mt-2"
-      placeholder="Poder"
-      [value]="power()"
-      (input)="power.set(powerInput.valueAsNumber)"
-      #powerInput
-    />
-    <button (click)="addCharacter()" class="btn btn-primary mt-2">Agregar</button>
   </div>
   <div class="col-12 col-sm-6 mt-3">
-    <app-character-list [characters]="characters()"></app-character-list>
+    <app-character-list
+      listName="Listado de personajes"
+      [characters]="characters()"
+    />
   </div>
 </section>
