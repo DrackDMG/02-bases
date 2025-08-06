@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
-import { Character } from '../../../interfaces/character';
+import { CharacterInterface } from '../../../interfaces/character.interface';
 
 @Component({
   selector: 'app-character-add',
@@ -11,7 +11,7 @@ export class CharacterAdd {
 
   name = signal('');
   power = signal(0);
-  newCharacter = output<Character>();
+  newCharacter = output<CharacterInterface>();
 
 
   addCharacter() {
@@ -19,7 +19,7 @@ export class CharacterAdd {
       console.error('Invalid character data');
       return;
     }
-    const newCharacter: Character = {
+    const newCharacter: CharacterInterface = {
       name: this.name(),
       power: this.power(),
       id: Math.floor(Math.random() * 10000) // Random ID for simplicity

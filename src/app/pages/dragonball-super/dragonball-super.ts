@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CharacterList } from '../../components/dragonball/character-list/character-list';
-import { Character } from '../../interfaces/character';
+import { CharacterInterface } from '../../interfaces/character.interface';
 import { CharacterAdd } from '../../components/dragonball/character-add/character-add';
+import { DragonballService } from '../../services/dragonball.service';
 
 @Component({
   selector: 'app-dragonball-super',
@@ -11,17 +12,11 @@ import { CharacterAdd } from '../../components/dragonball/character-add/characte
   styleUrl: './dragonball-super.css'
 })
 export class DragonballSuper {
+  public dragonballService = inject(DragonballService);
+  characters = this.dragonballService.characters;
 
-  name = signal('jyfv');
-  power = signal(10);
-
-  characters = signal<Character[]>([
-    { name: 'Goku', power: 9000, id: 1 },
-    { name: 'Vegeta', power: 8500, id: 2 }
-  ]);
-
-  addCharacter(newCharacter: Character) {
-    this.characters.update(chars => [...chars, newCharacter]);
+  addCharacter(newCharacter: CharacterInterface) {
+    this.dragonballService.addCharacter(newCharacter);
   }
 
 }

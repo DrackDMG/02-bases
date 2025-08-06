@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
-import type { Character } from '../../../interfaces/character';
+import type { CharacterInterface } from '../../../interfaces/character.interface';
 
 @Component({
   selector: 'app-character-list',
@@ -9,7 +9,7 @@ import type { Character } from '../../../interfaces/character';
 })
 export class CharacterList {
 listName = input.required<string>();
-characters = input.required<Character[]>();
+characters = input.required<CharacterInterface[]>();
 
 
 }
